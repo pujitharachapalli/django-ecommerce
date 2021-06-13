@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style="margin-top: 50px;">
+                    <div class="card-body">
+                        <form method="POST" action="login">
+                            {% csrf_token %}
+                            <div class="form-row">
+                              
+                              <div class="form-group col-md-12">
+                                <label>User Name</label>
+                                <input type="text" class="form-control" name = "username" placeholder="User Name"><br>
+                              </div>
+                              <div class="form-group col-md-12">
+                                <label>Password </label>
+                                <input type="password" class="form-control" name = "password" placeholder="Password"><br>
+                               
+                              </div>
+                              <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                        <div class="danger" style="color: red;">
+                            {% for message in messages %}
+                            <h3>{{message}}</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
